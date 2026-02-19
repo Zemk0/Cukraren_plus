@@ -42,7 +42,7 @@ async function displayNewsList() {
     try {
         const news = await DataService.getNews();
         if (news.length === 0) {
-            container.innerHTML = '<tr><td colspan="4" style="text-align: center;">Žiadne novinky</td></tr>';
+            container.innerHTML = '<tr><td colspan="4" style="text-align: center;">Žiadne novinky</td></tr>';   
             return;
         }
 
@@ -50,7 +50,7 @@ async function displayNewsList() {
             <tr>
                 <td>${item.title}</td>
                 <td>${formatDate(item.date)}</td>
-                <td><img src="${"../"+item.image}" alt="${item.title}" style="width: 80px; height: 60px; object-fit: cover; border-radius: 4px;" onerror="this.src='../assets/images/galeria/placeholder.jpg'"></td>
+                <td><img src="${item.image}" alt="${item.title}" style="width: 80px; height: 60px; object-fit: cover; border-radius: 4px;" onerror="this.src='/assets/images/galeria/placeholder.png'"></td>
                 <td class="admin-table-actions">
                     <button class="btn-edit" onclick="editNews('${item.id}')">Upraviť</button>
                     <button class="btn-remove" onclick="deleteNews('${item.id}')">Zmazať</button>
@@ -74,7 +74,7 @@ function initNewsForm() {
             title: document.getElementById('news-title').value,
             excerpt: document.getElementById('news-excerpt').value,
             content: document.getElementById('news-content').value,
-            image: document.getElementById('news-image').value || '../assets/images/galeria/placeholder.jpg'
+            image: document.getElementById('news-image').value || '/assets/images/galeria/placeholder.png'
         };
 
         try {
@@ -154,7 +154,7 @@ async function displayGalleryList() {
 
         container.innerHTML = gallery.map(item => `
             <tr>
-                <td><img src="${"../"+item.image}" alt="${item.title}" style="width: 100px; height: 80px; object-fit: cover; border-radius: 4px;" onerror="this.src='../assets/images/galeria/placeholder.png'"></td>
+                <td><img src="${item.image}" alt="${item.title}" style="width: 100px; height: 80px; object-fit: cover; border-radius: 4px;" onerror="this.src='/assets/images/galeria/placeholder.png'"></td>
                 <td>${item.title}</td>
                 <td class="admin-table-actions">
                     <button class="btn-remove" onclick="deleteGalleryItem('${item.id}')">Zmazať</button>
@@ -175,7 +175,7 @@ function initGalleryForm() {
         e.preventDefault();
         const galleryData = {
             title: document.getElementById('gallery-title').value,
-            image: document.getElementById('gallery-image').value || '../assets/images/galeria/placeholder.png'
+            image: document.getElementById('gallery-image').value || '/assets/images/galeria/placeholder.png'
         };
 
         try {

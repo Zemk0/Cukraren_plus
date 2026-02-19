@@ -2,7 +2,7 @@ const DataService = {
     
     config: {
         mode: 'local', 
-        localBasePath: 'data/',
+        localBasePath: '/assets/data/',
         apiBasePath: '/api/',
         useCache: true,
         cachePrefix: 'cukraren_',
@@ -164,10 +164,10 @@ const DataService = {
     
     getFallbackImage(type) {
         const fallbacks = {
-            product: '/assets/images/produkty/placeholder.jpg',
-            news: '/assets/images/galeria/placeholder.jpg',
-            gallery: '/assets/images/galeria/placeholder.jpg',
-            general: '/assets/images/placeholder.jpg'
+            product: 'assets/images/produkty/placeholder.png',
+            news: 'assets/images/galeria/placeholder.png',
+            gallery: 'assets/images/galeria/placeholder.png',
+            general: 'assets/images/placeholder.png'
         };
         
         return fallbacks[type] || fallbacks.general;
@@ -219,7 +219,7 @@ const DataService = {
     },
     
     async getNews() {
-        const news = await this.fetch('../data/novinky.json');
+        const news = await this.fetch('novinky.json');
         
         return news
             .map(item => ({

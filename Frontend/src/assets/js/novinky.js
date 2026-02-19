@@ -22,7 +22,7 @@ async function loadAllNews() {
         container.innerHTML = news.map(item => `
             <article class="news-article">
                 <div class="news-article-image">
-                    <img src="${item.image}" alt="${item.title}" onerror="this.src='assets/images/galeria/placeholder.jpg'">
+                    <img src="${item.image}" alt="${item.title}" onerror="this.src='/assets/images/galeria/placeholder.png'">
                 </div>
                 <div class="news-article-content">
                     <div class="news-article-date">${formatNewsDate(item.date)}</div>

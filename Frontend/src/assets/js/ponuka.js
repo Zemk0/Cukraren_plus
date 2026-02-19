@@ -34,7 +34,7 @@ function displayProducts(products) {
     container.innerHTML = products.map(product => `
         <div class="product-card" data-category="${product.category}">
             <div class="product-image">
-                <img src="${product.image}" alt="${product.name}" onerror="this.src='assets/images/produkty/placeholder.jpg'">
+                <img src="${product.image}" alt="${product.name}" onerror="this.src='/assets/images/produkty/placeholder.png'">
             </div>
             <div class="product-info">
                 <h3 class="product-name">${product.name}</h3>

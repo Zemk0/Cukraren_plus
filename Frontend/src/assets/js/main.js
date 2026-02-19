@@ -131,7 +131,7 @@ async function loadHomeProducts() {
         container.innerHTML = featuredProducts.map(product => `
             <div class="product-card" data-category="${product.category}">
                 <div class="product-image">
-                    <img src="${product.image}" alt="${product.name}" onerror="this.src='assets/images/produkty/placeholder.jpg'">
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='/assets/images/produkty/placeholder.png'">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">${product.name}</h3>
@@ -170,7 +170,7 @@ async function loadHomeNews() {
         container.innerHTML = recentNews.map(item => `
             <div class="news-card">
                 <div class="news-image">
-                    <img src="${item.image}" alt="${item.title}" onerror="this.src='assets/images/galeria/placeholder.png'">
+                    <img src="${item.image}" alt="${item.title}" onerror="this.src='/assets/images/galeria/placeholder.png'">
                 </div>
                 <div class="news-content">
                     <div class="news-date">${formatDate(item.date)}</div>
@@ -192,7 +192,7 @@ async function loadHero() {
     if (!hero) return;
 
     try {
-        const res = await fetch('data/hero.json');
+        const res = await fetch('assets/data/hero.json');
         const data = await res.json();
 
         hero.innerHTML = `
@@ -220,7 +220,7 @@ async function loadFeatured() {
     if (!container) return;
 
     try {
-        const res = await fetch('data/featured.json');
+        const res = await fetch('assets/data/featured.json');
         const data = await res.json();
 
         container.innerHTML = data.map(item => `
@@ -242,7 +242,7 @@ async function loadAbout() {
     if (!container) return;
 
     try {
-        const res = await fetch('data/about.json');
+        const res = await fetch('assets/data/about.json');
         const data = await res.json();
 
         container.innerHTML = `

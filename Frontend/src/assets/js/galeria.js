@@ -26,7 +26,7 @@ async function loadGallery() {
         
         container.innerHTML = gallery.map((item, index) => `
             <div class="gallery-item" data-index="${index}">
-                <img src="${item.image}" alt="${item.title}" onerror="this.src='assets/images/galeria/placeholder.jpg'">
+                <img src="${item.image}" alt="${item.title}" onerror="this.src='/assets/images/galeria/placeholder.png'">
                 <div class="gallery-item-overlay">
                     <div class="gallery-item-title">${item.title}</div>
                 </div>

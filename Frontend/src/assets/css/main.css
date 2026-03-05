@@ -229,6 +229,13 @@ select {
     text-align: center;
 }
 
+.footer-dark {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+    color: white;
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
 .page-header h1 {
     font-size: 2.5rem;
     font-weight: 700;
